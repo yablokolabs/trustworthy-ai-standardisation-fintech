@@ -106,6 +106,18 @@ The initial repository contents provide:
 - an evidence management note for fellowship reporting
 - a reusable standards review log for ongoing updates
 
+## Dissemination
+
+- Technical article (22 Jul 2026): [Four ISO Standards, One Missing Layer:
+  Trustworthy AI in Financial
+  Services](https://medium.com/@santhosh.kbr/four-iso-standards-one-missing-layer-trustworthy-ai-in-financial-services-7ec5d1f58845)
+- Technical input submitted to BSI ART/1, the UK national mirror committee to
+  ISO/IEC JTC 1/SC 42 (22 Jul 2026): the [CRA
+  proposal](proposals/continuous-reliability-assurance-for-financial-ai.md) and
+  the [financial-AI controls gap
+  matrix](mappings/financial-ai-controls-gap-matrix.md), with StandICT.eu 2029
+  fellowship funding declared to the committee.
+
 ## Contribution Areas
 
 Relevant future contributions include:
