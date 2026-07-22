@@ -129,6 +129,24 @@ or redistribution-sensitive sources.
 - **Related repository documents:**
   - `mappings/ai-standards-landscape.md`
 
+### EVID-2026-07-22-009
+
+- **Type:** privately retained email correspondence
+- **Source:** email to BSI Standards Development (ART/1 committee)
+- **Topic:** observer status follow-up; submission of the CRA proposal and
+  financial-AI controls gap matrix; StandICT.eu funding declaration
+- **Captured:** 2026-07-22
+- **Summary:** Records the formal transmission of two repository documents to
+  the UK national mirror committee for ISO/IEC JTC 1/SC 42, the declaration of
+  StandICT.eu 2029 fellowship funding, and the request for guidance on the
+  contribution route into SC 42 work.
+- **Publication status:** not suitable for public repository commit
+- **Reason retained privately:** personal correspondence
+- **Related repository documents:**
+  - `proposals/continuous-reliability-assurance-for-financial-ai.md`
+  - `mappings/financial-ai-controls-gap-matrix.md`
+  - `notes/standards-review-log.md` (Entry 7)
+
 ## Referencing Guidance
 
 When citing privately retained evidence in repository documents or final
