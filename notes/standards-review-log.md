@@ -343,8 +343,9 @@ Published a public technical article summarising the fellowship analysis.
 
 ### Observations
 
-- CRA proposal and controls gap matrix transmitted to BSI as PDF attachments,
-  with links to the canonical repository versions.
+- CRA proposal and controls gap matrix transmitted via the ART/1 portal
+  message with links to the canonical repository versions; PDF renderings are
+  published on repository release v0.2.0.
 - Confirmation of observer status, the next committee or panel meeting date,
   and guidance on the appropriate contribution route into SC 42 work were
   requested.
