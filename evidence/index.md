@@ -131,17 +131,20 @@ or redistribution-sensitive sources.
 
 ### EVID-2026-07-22-009
 
-- **Type:** privately retained email correspondence
-- **Source:** email to BSI Standards Development (ART/1 committee)
+- **Type:** privately retained portal submission screenshot
+- **Source:** BSI Standards Development portal — ART/1 "Message Committee"
+  form (to the Secretary of Technical Committee ART/1)
 - **Topic:** observer status follow-up; submission of the CRA proposal and
-  financial-AI controls gap matrix; StandICT.eu funding declaration
+  financial-AI controls gap matrix as technical input; StandICT.eu funding
+  declaration
 - **Captured:** 2026-07-22
 - **Summary:** Records the formal transmission of two repository documents to
-  the UK national mirror committee for ISO/IEC JTC 1/SC 42, the declaration of
-  StandICT.eu 2029 fellowship funding, and the request for guidance on the
-  contribution route into SC 42 work.
+  the UK national mirror committee for ISO/IEC JTC 1/SC 42 via the official
+  BSI committee contact channel, the declaration of StandICT.eu 2029
+  fellowship funding, and the request for guidance on the contribution route
+  into SC 42 work. Reply address: ceo@yablokolabs.com.
 - **Publication status:** not suitable for public repository commit
-- **Reason retained privately:** personal correspondence
+- **Reason retained privately:** authenticated portal context
 - **Related repository documents:**
   - `proposals/continuous-reliability-assurance-for-financial-ai.md`
   - `mappings/financial-ai-controls-gap-matrix.md`

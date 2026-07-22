@@ -334,7 +334,8 @@ JTC 1/SC 42 (Artificial intelligence)
 
 ### Scope Summary
 
-Followed up the BSI observer registration with a formal email submission of
+Followed up the BSI observer registration with a formal submission via the
+BSI Standards Development portal (Message Committee) of
 two repository documents — the Continuous Reliability Assurance (CRA)
 proposal and the financial-AI controls gap matrix — as technical input to the
 committee, with the StandICT.eu 2029 fellowship funding openly declared.
