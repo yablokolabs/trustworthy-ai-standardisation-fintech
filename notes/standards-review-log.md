@@ -321,6 +321,53 @@ and reliability assessment for live financial AI systems.
 - `gap-analysis/reliability-gaps.md`
 - `evidence/index.md`
 
+## Entry 7 — BSI ART/1 Engagement and Public Dissemination
+
+### Date
+
+2026-07-22
+
+### Standard Reviewed
+
+Engagement activity: BSI ART/1, the UK national mirror committee to ISO/IEC
+JTC 1/SC 42 (Artificial intelligence)
+
+### Scope Summary
+
+Followed up the BSI observer registration with a formal email submission of
+two repository documents — the Continuous Reliability Assurance (CRA)
+proposal and the financial-AI controls gap matrix — as technical input to the
+committee, with the StandICT.eu 2029 fellowship funding openly declared.
+Published a public technical article summarising the fellowship analysis.
+
+### Observations
+
+- CRA proposal and controls gap matrix transmitted to BSI as PDF attachments,
+  with links to the canonical repository versions.
+- Confirmation of observer status, the next committee or panel meeting date,
+  and guidance on the appropriate contribution route into SC 42 work were
+  requested.
+- Dissemination article published 22 July 2026: "Four ISO Standards, One
+  Missing Layer: Trustworthy AI in Financial Services"
+  (https://medium.com/@santhosh.kbr/four-iso-standards-one-missing-layer-trustworthy-ai-in-financial-services-7ec5d1f58845).
+
+### Gaps Identified
+
+- Formal contribution routing into SC 42 via national mirror committee
+  processes remains pending BSI guidance.
+
+### Recommendations
+
+- Attend the next available ART/1 meeting (virtually) and present the CRA
+  proposal.
+- Record contribution identifiers in this log when assigned.
+
+### Evidence Links
+
+- `proposals/continuous-reliability-assurance-for-financial-ai.md`
+- `mappings/financial-ai-controls-gap-matrix.md`
+- `evidence/index.md` (EVID-2026-07-22-009)
+
 ## Reusable Entry Template
 
 Copy the structure below for each additional review.
