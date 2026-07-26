@@ -370,6 +370,87 @@ Published a public technical article summarising the fellowship analysis.
 - `mappings/financial-ai-controls-gap-matrix.md`
 - `evidence/index.md` (EVID-2026-07-22-009)
 
+## Entry 8 — BSI Response, Standards Maker Application, and Reporting Close-out
+
+### Date
+
+2026-07-23
+
+### Standard Reviewed
+
+Engagement activity: BSI ART/1 follow-up and fellowship reporting close-out
+
+### Scope Summary
+
+Closes out the items left open in Entry 7. BSI responded to the ART/1 committee
+message; a Standards Maker application was submitted through the BSI portal;
+the article was cross-posted to three further channels and submitted to one
+editorial outlet; and the StandICT.eu 2029 Final Report was submitted through
+the Trust-Grants portal.
+
+### Observations
+
+- BSI acknowledged the ART/1 committee message on 22 July 2026 and confirmed an
+  application backlog. A substantive decision on committee participation is not
+  expected until later in 2026. Entry 7 recorded this confirmation as
+  requested; it has now been received, and the outcome is a deferral rather
+  than a decision.
+- A BSI Standards Maker application was submitted on 22 July 2026 through the
+  official BSI application form. Submission is confirmed; the outcome is
+  subject to the same backlog.
+- The dissemination article was cross-posted to dev.to, Reddit r/artificial,
+  and the Yabloko Labs LinkedIn company page on 22 July 2026, and submitted to
+  KDnuggets for editorial review the same day. The Reddit submission was held
+  by the subreddit spam filter pending moderator approval. Channel-level detail
+  is recorded in `notes/dissemination-log.md`.
+- A reference implementation of the CRA proposal was added to the repository
+  under `examples/`, expressing the minimum evidence bundle as a JSON Schema
+  and the section 4 escalation model as a runnable evaluator. Building it
+  surfaced four limitations in the proposal as written, now recorded in
+  `examples/README.md`.
+- The StandICT.eu 2029 Final Report was submitted on 23 July 2026, ahead of the
+  31 July deadline.
+
+### Gaps Identified
+
+- Committee participation status remains unresolved. Both the ART/1 observer
+  follow-up and the Standards Maker application are queued behind the BSI
+  backlog, so no contribution identifier has been assigned and no meeting has
+  been attended within the fellowship period.
+- Formal contribution routing into SC 42 therefore remains untested in
+  practice. The technical input has been transmitted to the national mirror
+  committee, but the route from national committee to international work item
+  has not yet been exercised.
+- KPI 3 targets 500 or more views on the published article. Recorded readership
+  at the point of reporting was 1 view, captured 23 July 2026. The target was
+  not met within the grant period. The largest cross-post channel was still
+  awaiting moderator approval when the figure was captured, so the number
+  reflects a publication one day old rather than a settled outcome, but the
+  shortfall against target is real and is reported as such.
+- The CRA scoring model has no separate input for regulatory or supervisory
+  exposure, and can recommend suspension for systems where suspension is not a
+  permissible action. Both are documented limitations rather than resolved
+  design.
+
+### Recommendations
+
+- Await BSI's decision and record the contribution identifier and committee
+  status in this log when assigned.
+- Continue tracking article readership in `notes/dissemination-log.md` with
+  capture dates, rather than restating a single figure.
+- Address the reference implementation limitations in a follow-up revision:
+  separate regulatory exposure from customer financial impact, gate on autonomy
+  before scoring, and derive metric deterioration from the bundle's own metrics
+  array.
+- Archive the repository to Zenodo to obtain a citable DOI, giving the outputs
+  a durable reference independent of any single publishing platform.
+
+### Evidence Links
+
+- `evidence/index.md` (EVID-2026-07-22-010 to EVID-2026-07-23-014)
+- `notes/dissemination-log.md`
+- `examples/README.md`
+
 ## Reusable Entry Template
 
 Copy the structure below for each additional review.
