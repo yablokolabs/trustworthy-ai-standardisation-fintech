@@ -1,5 +1,8 @@
 # Trustworthy AI Standardisation for Financial Services
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21603770.svg)](https://doi.org/10.5281/zenodo.21603770)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 ## Project Overview
 
 This repository is a public technical artifact for practical work on
@@ -185,6 +188,22 @@ Standards engagement:
 
 Channel-by-channel status, dates, and evidence references are recorded in the
 [dissemination log](notes/dissemination-log.md).
+
+## Citation
+
+This repository is archived on Zenodo and has a citable DOI. Cite the concept
+DOI below, which always resolves to the latest version:
+
+> Balasa, S. (2026). *Trustworthy AI Standardisation for Financial Services*
+> (v0.3.0) [Software]. Zenodo. https://doi.org/10.5281/zenodo.21603770
+
+| | DOI |
+| --- | --- |
+| All versions (preferred) | [10.5281/zenodo.21603770](https://doi.org/10.5281/zenodo.21603770) |
+| v0.3.0 | [10.5281/zenodo.21603771](https://doi.org/10.5281/zenodo.21603771) |
+
+Machine-readable metadata is in [CITATION.cff](CITATION.cff); GitHub's
+"Cite this repository" control reads from it.
 
 ## Contribution Areas
 
