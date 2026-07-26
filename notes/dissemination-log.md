@@ -58,10 +58,23 @@ The repository itself is a dissemination output under KPI 4, which targets at
 least one public repository or code example demonstrating standards-aligned AI
 system implementation.
 
-| Release | Date | Contents |
-| --- | --- | --- |
-| v0.1.0 | 19 Jun 2026 | Standards landscape, controls mapping, reliability gap analysis, CRA proposal, evidence guidance, standards review log |
-| v0.2.0 | 22 Jul 2026 | Public dissemination record and BSI ART/1 engagement; PDF renderings of the CRA proposal and controls gap matrix |
+| Release | Date | DOI | Contents |
+| --- | --- | --- | --- |
+| v0.1.0 | 19 Jun 2026 | — | Standards landscape, controls mapping, reliability gap analysis, CRA proposal, evidence guidance, standards review log |
+| v0.2.0 | 22 Jul 2026 | — | Public dissemination record and BSI ART/1 engagement; PDF renderings of the CRA proposal and controls gap matrix |
+| v0.3.0 | 26 Jul 2026 | [10.5281/zenodo.21603771](https://doi.org/10.5281/zenodo.21603771) | CRA reference implementation (schema, evaluator, sample bundles), dissemination log, review log Entry 8, CITATION.cff |
+
+### Archival and citation
+
+The repository is archived on Zenodo, which mints a DOI for each release from
+v0.3.0 onward. The concept DOI
+[10.5281/zenodo.21603770](https://doi.org/10.5281/zenodo.21603770) represents
+all versions and always resolves to the latest.
+
+This gives the fellowship outputs a durable, citable reference that does not
+depend on any single publishing platform remaining available, and one that
+accrues citations on a longer timescale than article view counts. Releases
+v0.1.0 and v0.2.0 predate the Zenodo integration and therefore have no DOI.
 
 ## Analytics
 
