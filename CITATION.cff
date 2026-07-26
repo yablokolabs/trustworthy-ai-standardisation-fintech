@@ -15,6 +15,7 @@ authors:
     family-names: Balasa
     affiliation: Yabloko Labs Ltd.
     email: ceo@yablokolabs.com
+    orcid: "https://orcid.org/0009-0003-6840-2567"
 repository-code: "https://github.com/yablokolabs/trustworthy-ai-standardisation-fintech"
 license: MIT
 version: 0.3.0
