@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: If you use this repository, please cite it as below.
+title: "Trustworthy AI Standardisation for Financial Services"
+abstract: >-
+  Technical analysis and implementation guidance for trustworthy AI
+  standardisation in financial services, produced under the StandICT.eu 2029
+  Fellowship. Covers a cross-standard assessment of ISO/IEC 42001, ISO/IEC
+  23894, ISO/IEC 5338 and ISO/IEC TS 25570, a financial-AI controls gap matrix,
+  a reliability gap analysis for adaptive and agentic system forms, and the
+  Continuous Reliability Assurance (CRA) proposal with a reference
+  implementation.
+type: software
+authors:
+  - given-names: Santhosh
+    family-names: Balasa
+    affiliation: Yabloko Labs Ltd.
+    email: ceo@yablokolabs.com
+repository-code: "https://github.com/yablokolabs/trustworthy-ai-standardisation-fintech"
+license: MIT
+version: 0.3.0
+date-released: "2026-07-26"
+keywords:
+  - trustworthy AI
+  - AI standardisation
+  - financial services
+  - fintech
+  - AI governance
+  - AI risk management
+  - reliability assessment
+  - ISO/IEC 42001
+  - ISO/IEC 23894
+  - ISO/IEC 5338
+  - ISO/IEC TS 25570
+  - EU AI Act
