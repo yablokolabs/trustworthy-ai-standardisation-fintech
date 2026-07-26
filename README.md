@@ -80,43 +80,111 @@ trustworthy-ai-standardisation-fintech/
 ├── .gitignore
 ├── docs/
 │   └── fellowship-overview.md
-├── evidence/
-│   └── README.md
-├── notes/
-│   └── standards-review-log.md
+├── proposals/
+│   └── continuous-reliability-assurance-for-financial-ai.md
 ├── mappings/
 │   ├── ai-standards-landscape.md
+│   ├── financial-ai-controls-gap-matrix.md
 │   └── fintech-controls-mapping.md
 ├── gap-analysis/
 │   └── reliability-gaps.md
 ├── recommendations/
 │   └── future-standardisation-directions.md
+├── examples/
+│   ├── README.md
+│   ├── schema/
+│   │   └── cra-evidence-bundle.schema.json
+│   ├── python/
+│   │   └── cra_eval.py
+│   └── samples/
+├── notes/
+│   ├── standards-review-log.md
+│   └── dissemination-log.md
+├── evidence/
+│   ├── README.md
+│   └── index.md
 └── assets/
 ```
 
+### Key documents
+
+- [Continuous Reliability Assurance proposal](proposals/continuous-reliability-assurance-for-financial-ai.md)
+  — the central original contribution: a trigger taxonomy, evidence bundle,
+  escalation model, and ownership split for live financial AI supervision
+- [Financial AI controls gap matrix](mappings/financial-ai-controls-gap-matrix.md)
+  — cross-standard coverage assessment against financial AI control domains
+- [Reliability gap analysis](gap-analysis/reliability-gaps.md)
+  — targeted gaps for adaptive, LLM-based, and agentic system forms
+- [CRA reference implementation](examples/README.md)
+  — the proposal expressed as a JSON Schema and a runnable evaluator
+- [Standards review log](notes/standards-review-log.md) and
+  [dissemination log](notes/dissemination-log.md) — the working project record
+
 ## Deliverables
 
-The initial repository contents provide:
+The repository contents provide:
 
 - a fellowship overview and dissemination framing
 - a standards landscape assessment for selected AI standards
 - a controls mapping for financial services implementation
 - a targeted reliability gap analysis for newer AI system forms
+- the Continuous Reliability Assurance proposal as an original contribution
+- a runnable reference implementation of that proposal
 - future standardisation recommendations with actionable work items
-- an evidence management note for fellowship reporting
-- a reusable standards review log for ongoing updates
+- an evidence management note and private evidence index for reporting
+- a reusable standards review log and a dissemination log
+
+## Reference Implementation
+
+The CRA proposal is accompanied by a small, dependency-free reference
+implementation in [`examples/`](examples/README.md) so the model can be
+executed and tested rather than only read:
+
+- a [JSON Schema](examples/schema/cra-evidence-bundle.schema.json) for the
+  minimum CRA evidence bundle, encoding the A-E trigger taxonomy, materiality
+  classes, and required ownership split
+- an [evaluator](examples/python/cra_eval.py) that scores the six threshold
+  design factors, recommends an escalation level from 1 to 5, and reports
+  conformance findings such as collapsed ownership or an understated level
+- five [sample bundles](examples/samples) covering credit decisioning, fraud
+  detection, LLM assistants, and agentic payment workflows, one of which is
+  deliberately non-conformant to demonstrate the checks
+
+```bash
+cd examples/python
+python3 cra_eval.py ../samples/*.json
+python3 cra_eval.py --selftest
+```
+
+The scoring weights are an inspectable default rather than a recommendation,
+and the [known limitations](examples/README.md#known-limitations) are stated
+explicitly. Python 3.8+, standard library only.
 
 ## Dissemination
 
-- Technical article (22 Jul 2026): [Four ISO Standards, One Missing Layer:
-  Trustworthy AI in Financial
+Primary article, published 22 Jul 2026:
+
+- [Four ISO Standards, One Missing Layer: Trustworthy AI in Financial
   Services](https://medium.com/@santhosh.kbr/four-iso-standards-one-missing-layer-trustworthy-ai-in-financial-services-7ec5d1f58845)
+  on Medium, cross-posted to
+  [dev.to](https://dev.to/sbalasa/four-iso-standards-one-missing-layer-trustworthy-ai-in-financial-services-2km),
+  Reddit r/artificial, and the Yabloko Labs LinkedIn company page, and
+  submitted to KDnuggets for editorial review.
+
+Standards engagement:
+
 - Technical input submitted to BSI ART/1, the UK national mirror committee to
   ISO/IEC JTC 1/SC 42 (22 Jul 2026): the [CRA
   proposal](proposals/continuous-reliability-assurance-for-financial-ai.md) and
   the [financial-AI controls gap
   matrix](mappings/financial-ai-controls-gap-matrix.md), with StandICT.eu 2029
   fellowship funding declared to the committee.
+- BSI Standards Maker application submitted 22 Jul 2026. BSI acknowledged the
+  committee message the same day and confirmed an application backlog, with a
+  substantive decision not expected until later in 2026.
+
+Channel-by-channel status, dates, and evidence references are recorded in the
+[dissemination log](notes/dissemination-log.md).
 
 ## Contribution Areas
 
