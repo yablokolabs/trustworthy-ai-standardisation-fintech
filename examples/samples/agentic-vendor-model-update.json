@@ -1,0 +1,109 @@
+{
+  "bundle_id": "CRA-2026-07-006",
+  "schema_version": "0.1.0",
+  "system": {
+    "system_id": "AGT-PAYOPS-01",
+    "name": "Payment exception resolution agent",
+    "use_case": "Agentic AI systems, section 8",
+    "system_class": "agentic",
+    "autonomy_level": "autonomous",
+    "impact_tier": "critical"
+  },
+  "trigger_record": {
+    "trigger_id": "TRG-2026-07-0502",
+    "category": "C_system_change",
+    "materiality": "restrict_or_stop_use",
+    "detected_at": "2026-07-06T11:05:00Z",
+    "detection_source": "external_party",
+    "summary": "Provider replaced the underlying model version without advance notice. A correspondent bank reported duplicated repair instructions on three payments before internal monitoring flagged the change."
+  },
+  "delta_description": {
+    "summary": "Vendor rolled the served model to a new version. Tool-call formatting changed subtly, causing the agent to re-issue a repair action when the first call returned an ambiguous acknowledgement, rather than treating it as terminal.",
+    "duration": "short",
+    "change_records": [
+      {
+        "change_type": "vendor_model_update",
+        "reference": "Provider release note 2026.07.1, no advance notification",
+        "applied_at": "2026-07-06T02:00:00Z"
+      },
+      {
+        "change_type": "orchestration_change",
+        "reference": "No internal change; orchestration logic unchanged since ORCH-88",
+        "applied_at": "2026-05-19T09:00:00Z"
+      }
+    ]
+  },
+  "reliability_impact_analysis": {
+    "customer_financial_impact": "high",
+    "compensating_controls": "none",
+    "assessment": "The agent holds delegated authority to issue payment repair instructions without human confirmation. Duplicate instructions created three double-repair events requiring manual recall, with correspondent bank exposure. Section 8 notes agentic systems can fail across a chain of actions rather than a single output, and section 4 treats autonomy as a threshold multiplier: the same defect in an advisory tool would be recoverable, but here it produced unreviewed external actions.",
+    "root_cause": "Vendor model version change altered tool-call acknowledgement semantics. The agent's retry guard tested for an exact acknowledgement string that the new version no longer emitted, so the terminal state was never recognised.",
+    "metrics": [
+      {
+        "name": "duplicate_action_rate",
+        "baseline": 0.0,
+        "observed": 0.021,
+        "threshold": 0.001,
+        "breached": true
+      },
+      {
+        "name": "workflow_completion_success",
+        "baseline": 0.991,
+        "observed": 0.944,
+        "threshold": 0.98,
+        "breached": true
+      }
+    ]
+  },
+  "monitoring_snapshot": {
+    "captured_at": "2026-07-06T11:30:00Z",
+    "monitoring_intact": true,
+    "drift_indicators": [
+      "tool-call retry count per workflow up from 1.01 to 1.34",
+      "unrecognised acknowledgement payloads present from 02:00 onward"
+    ],
+    "override_rate": 0.0,
+    "alert_history_reference": "MON-AGT-PAYOPS-01/2026-07-06",
+    "notes": "Override rate is zero by design: this workflow has no human confirmation step, which is precisely why the defect reached external counterparties."
+  },
+  "decision_record": {
+    "decision": "rollback",
+    "recorded_escalation_level": 5,
+    "rationale": "An autonomous system with payment-instruction authority operated outside its accepted operating envelope and produced external financial actions that required recall. The accepted envelope assumed a pinned model version; that assumption no longer holds. Autonomous execution is suspended and the workflow reverts to the human-confirmation fallback path pending revalidation against the new model version and reopened approval conditions.",
+    "temporary_controls": [
+      "Autonomous execution suspended; all repair instructions routed to payment operations for confirmation",
+      "Model version pinned in the serving contract with change notification required",
+      "Retry guard rewritten to treat unrecognised acknowledgements as non-terminal and halt",
+      "Daily reconciliation against correspondent bank confirmations"
+    ],
+    "decided_at": "2026-07-06T16:45:00Z",
+    "governance_forum_notified": true
+  },
+  "ownership": {
+    "business_owner": {
+      "id": "l.fenwick",
+      "role_title": "Head of Payment Operations",
+      "signed_off_at": "2026-07-06T16:45:00Z"
+    },
+    "technical_owner": {
+      "id": "c.aliyev",
+      "role_title": "Staff Engineer, Agentic Workflows",
+      "signed_off_at": "2026-07-06T15:20:00Z"
+    },
+    "independent_control_owner": {
+      "id": "b.whitfield",
+      "role_title": "Head of Model Risk",
+      "signed_off_at": "2026-07-06T17:30:00Z"
+    },
+    "operations_incident_owner": {
+      "id": "t.brennan",
+      "role_title": "Incident Manager",
+      "signed_off_at": "2026-07-06T17:05:00Z"
+    },
+    "approver": {
+      "id": "b.whitfield",
+      "role_title": "Head of Model Risk",
+      "signed_off_at": "2026-07-06T17:30:00Z"
+    }
+  }
+}

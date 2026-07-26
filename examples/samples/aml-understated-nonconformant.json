@@ -1,0 +1,63 @@
+{
+  "bundle_id": "CRA-2026-07-011",
+  "schema_version": "0.1.0",
+  "system": {
+    "system_id": "AML-SURV-03",
+    "name": "Transaction monitoring alert engine",
+    "use_case": "AML monitoring, section 8. This bundle is deliberately non-conformant and is used to demonstrate the checks.",
+    "system_class": "stable_predictive",
+    "autonomy_level": "human_in_loop",
+    "impact_tier": "high"
+  },
+  "trigger_record": {
+    "trigger_id": "TRG-2026-07-0611",
+    "category": "E_external_challenge",
+    "materiality": "approval_required",
+    "detected_at": "2026-07-14T10:00:00Z",
+    "detection_source": "external_party",
+    "summary": "Regulatory inquiry into alert suppression rules following a thematic review. Section 2 category E treats regulatory inquiry as a reassessment trigger."
+  },
+  "delta_description": {
+    "summary": "No system change. A suppression rule introduced 14 months ago is now challenged as over-broad, and the population of suppressed alerts has grown steadily since introduction without review.",
+    "duration": "sustained"
+  },
+  "reliability_impact_analysis": {
+    "customer_financial_impact": "low",
+    "compensating_controls": "none",
+    "assessment": "Suppressed alert volume grew from 4 percent to 22 percent of generated alerts. No compensating sampling of the suppressed population exists, so the institution cannot currently evidence that suppression has not concealed reportable activity. Direct customer financial impact is low; the material exposure is regulatory. See the known limitations note in examples/README.md: the scoring model has no separate input for regulatory exposure, which this bundle understates as a result.",
+    "root_cause": "Suppression rule thresholds were set against a 2025 transaction profile and were never re-baselined as volumes and customer mix changed."
+  },
+  "monitoring_snapshot": {
+    "captured_at": "2026-07-14T12:00:00Z",
+    "monitoring_intact": true,
+    "drift_indicators": [
+      "suppressed alert share up from 0.04 to 0.22"
+    ],
+    "override_rate": 0.07,
+    "alert_history_reference": "MON-AML-SURV-03/2025-05..2026-07"
+  },
+  "decision_record": {
+    "decision": "continue",
+    "recorded_escalation_level": 2,
+    "rationale": "Team assessed this as a documentation request and elected to continue operating unchanged while preparing a response.",
+    "decided_at": "2026-07-15T09:00:00Z",
+    "governance_forum_notified": false
+  },
+  "ownership": {
+    "business_owner": {
+      "id": "n.abara",
+      "role_title": "Head of Financial Crime Operations",
+      "signed_off_at": "2026-07-15T09:00:00Z"
+    },
+    "technical_owner": {
+      "id": "v.kaur",
+      "role_title": "Surveillance Tuning Analyst",
+      "signed_off_at": "2026-07-15T08:30:00Z"
+    },
+    "independent_control_owner": {
+      "id": "n.abara",
+      "role_title": "Head of Financial Crime Operations",
+      "signed_off_at": "2026-07-15T09:00:00Z"
+    }
+  }
+}
