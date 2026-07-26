@@ -150,6 +150,85 @@ or redistribution-sensitive sources.
   - `mappings/financial-ai-controls-gap-matrix.md`
   - `notes/standards-review-log.md` (Entry 7)
 
+### EVID-2026-07-22-010
+
+- **Type:** privately retained email screenshot
+- **Source:** sent-items copy of the guest post submission to
+  submissions@kdnuggets.com
+- **Topic:** editorial submission of the dissemination article
+- **Captured:** 2026-07-22
+- **Summary:** Records the date and content of the submission to KDnuggets for
+  editorial review. Evidences the submission only; KDnuggets operates editorial
+  selection and no publication commitment exists.
+- **Publication status:** not suitable for public repository commit
+- **Reason retained privately:** contains a private mailbox view
+- **Related repository documents:**
+  - `notes/dissemination-log.md`
+  - `notes/standards-review-log.md` (Entry 8)
+
+### EVID-2026-07-22-011
+
+- **Type:** privately retained screenshot
+- **Source:** Reddit submission confirmation for r/artificial
+- **Topic:** cross-post of the dissemination article
+- **Captured:** 2026-07-22
+- **Summary:** Records that the article was submitted to r/artificial and held
+  by the subreddit spam filter pending moderator approval. Evidences
+  submission, not visibility.
+- **Publication status:** not suitable for public repository commit
+- **Reason retained privately:** contains an authenticated account view
+- **Related repository documents:**
+  - `notes/dissemination-log.md`
+
+### EVID-2026-07-22-012
+
+- **Type:** privately retained screenshot
+- **Source:** LinkedIn, Yabloko Labs company page
+- **Topic:** cross-post of the dissemination article
+- **Captured:** 2026-07-22
+- **Summary:** Records the published company-page post summarising the CRA
+  argument and linking to the article and this repository. The post itself is
+  public; the screenshot is retained privately because it was captured from an
+  authenticated page manager view.
+- **Publication status:** underlying post is public; screenshot not committed
+- **Reason retained privately:** authenticated page-manager context
+- **Related repository documents:**
+  - `notes/dissemination-log.md`
+
+### EVID-2026-07-22-013
+
+- **Type:** privately retained portal screenshots
+- **Source:** BSI Standards Maker application form, and the BSI reply to the
+  ART/1 committee message
+- **Topic:** committee participation application and BSI response
+- **Captured:** 2026-07-22
+- **Summary:** Two items. First, confirmation that a BSI Standards Maker
+  application was submitted on 22 July 2026. Second, the BSI reply
+  acknowledging the ART/1 committee message the same day and confirming an
+  application backlog, with a substantive decision not expected until later in
+  2026. Together these close the confirmation request recorded in Entry 7.
+- **Publication status:** not suitable for public repository commit
+- **Reason retained privately:** authenticated portal context and named
+  third-party correspondence
+- **Related repository documents:**
+  - `notes/standards-review-log.md` (Entries 7 and 8)
+  - `proposals/continuous-reliability-assurance-for-financial-ai.md`
+
+### EVID-2026-07-23-014
+
+- **Type:** privately retained portal screenshot
+- **Source:** StandICT.eu Trust-Grants portal
+- **Topic:** Final Report submission for application ID 2029-02-1778
+- **Captured:** 2026-07-23
+- **Summary:** Records that the fellowship Final Report was submitted on
+  23 July 2026, ahead of the 31 July deadline, and that the portal reported the
+  report as sent and awaiting evaluation.
+- **Publication status:** not suitable for public repository commit
+- **Reason retained privately:** authenticated portal context
+- **Related repository documents:**
+  - `notes/standards-review-log.md` (Entry 8)
+  - `docs/fellowship-overview.md`
+
 ## Referencing Guidance
 
 When citing privately retained evidence in repository documents or final

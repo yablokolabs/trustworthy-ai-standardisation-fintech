@@ -1,0 +1,87 @@
+{
+  "bundle_id": "CRA-2026-06-014",
+  "schema_version": "0.1.0",
+  "system": {
+    "system_id": "OPS-ASSIST-01",
+    "name": "Complaints handling LLM assistant",
+    "use_case": "LLM assistants, section 8",
+    "system_class": "llm_assistant",
+    "autonomy_level": "human_on_loop",
+    "impact_tier": "moderate"
+  },
+  "trigger_record": {
+    "trigger_id": "TRG-2026-06-0233",
+    "category": "C_system_change",
+    "materiality": "review_required",
+    "detected_at": "2026-06-08T09:15:00Z",
+    "detection_source": "automated_monitoring",
+    "summary": "Prompt template revised to shorten drafted responses. Section 2 category C treats prompt template changes as reassessment triggers."
+  },
+  "delta_description": {
+    "summary": "System prompt updated to cap drafted complaint responses at 200 words and to instruct the model to omit background restatement. Retrieval corpus and provider model unchanged.",
+    "duration": "transient",
+    "change_records": [
+      {
+        "change_type": "prompt_change",
+        "reference": "PROMPT-REG-118 revision 4",
+        "applied_at": "2026-06-08T08:00:00Z"
+      }
+    ]
+  },
+  "reliability_impact_analysis": {
+    "customer_financial_impact": "low",
+    "compensating_controls": "effective",
+    "assessment": "Every drafted response is reviewed and sent by a complaints handler, so no output reaches a customer unreviewed. Post-change sampling showed grounding and factual accuracy held steady; the observable effect was shorter drafts and a small rise in handler edits for tone.",
+    "metrics": [
+      {
+        "name": "grounding_pass_rate",
+        "baseline": 0.97,
+        "observed": 0.96,
+        "threshold": 0.93,
+        "breached": false
+      },
+      {
+        "name": "handler_edit_rate",
+        "baseline": 0.31,
+        "observed": 0.38,
+        "threshold": 0.5,
+        "breached": false
+      }
+    ]
+  },
+  "monitoring_snapshot": {
+    "captured_at": "2026-06-09T09:00:00Z",
+    "monitoring_intact": true,
+    "drift_indicators": [
+      "mean response length down 41 percent",
+      "no change in retrieval hit rate"
+    ],
+    "override_rate": 0.38,
+    "alert_history_reference": "MON-OPS-ASSIST-01/2026-06-08..09",
+    "notes": "Human-on-loop review remains the binding control; no unreviewed output path exists."
+  },
+  "decision_record": {
+    "decision": "revalidate",
+    "recorded_escalation_level": 2,
+    "rationale": "The change is contained and compensating review is effective, so continued use is justified. A structured revalidation of the sampled output set closes the reliability case for this prompt revision.",
+    "decided_at": "2026-06-09T11:40:00Z",
+    "governance_forum_notified": false
+  },
+  "ownership": {
+    "business_owner": {
+      "id": "a.duval",
+      "role_title": "Head of Customer Complaints",
+      "signed_off_at": "2026-06-09T11:40:00Z"
+    },
+    "technical_owner": {
+      "id": "m.reyes",
+      "role_title": "Engineering Lead, Assistive Systems",
+      "signed_off_at": "2026-06-09T10:55:00Z"
+    },
+    "independent_control_owner": {
+      "id": "p.singh",
+      "role_title": "Conduct Risk Reviewer",
+      "signed_off_at": "2026-06-09T12:10:00Z"
+    }
+  }
+}

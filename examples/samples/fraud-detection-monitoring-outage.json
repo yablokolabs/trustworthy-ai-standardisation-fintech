@@ -1,0 +1,101 @@
+{
+  "bundle_id": "CRA-2026-06-027",
+  "schema_version": "0.1.0",
+  "system": {
+    "system_id": "FRD-RT-04",
+    "name": "Real-time card fraud scoring",
+    "use_case": "Fraud detection, section 8",
+    "system_class": "continually_retrained",
+    "autonomy_level": "human_on_loop",
+    "impact_tier": "critical"
+  },
+  "trigger_record": {
+    "trigger_id": "TRG-2026-06-0388",
+    "category": "D_control_failure",
+    "materiality": "approval_required",
+    "detected_at": "2026-06-24T04:48:00Z",
+    "detection_source": "internal_review",
+    "summary": "Feature pipeline telemetry stopped publishing for 31 hours. Section 2 category D treats monitoring outage and logging failure as control failure triggers."
+  },
+  "delta_description": {
+    "summary": "The streaming aggregation job silently failed after a dependency upgrade, so drift indicators and alert-quality metrics were not produced between 22 June 21:40 and 24 June 04:48. Scoring itself continued uninterrupted.",
+    "duration": "short",
+    "change_records": [
+      {
+        "change_type": "dependency_change",
+        "reference": "INFRA-2291 stream client library upgrade",
+        "applied_at": "2026-06-22T21:00:00Z"
+      }
+    ]
+  },
+  "reliability_impact_analysis": {
+    "customer_financial_impact": "low",
+    "compensating_controls": "partial",
+    "assessment": "No confirmed customer harm: retrospective replay of the outage window showed fraud capture and false-positive rates within tolerance. The material issue is that the institution could not have detected deterioration during the window, so assurance was unevidenced rather than demonstrably broken. Analyst queue review provided partial coverage.",
+    "root_cause": "Stream client upgrade changed the default acknowledgement mode; the aggregation job failed without raising a health-check failure because the health probe only tested process liveness, not output freshness.",
+    "metrics": [
+      {
+        "name": "telemetry_freshness_hours",
+        "baseline": 0.25,
+        "observed": 31.0,
+        "threshold": 2.0,
+        "breached": true
+      },
+      {
+        "name": "replayed_fraud_capture_rate",
+        "baseline": 0.83,
+        "observed": 0.82,
+        "threshold": 0.75,
+        "breached": false
+      }
+    ]
+  },
+  "monitoring_snapshot": {
+    "captured_at": "2026-06-24T06:00:00Z",
+    "monitoring_intact": false,
+    "drift_indicators": [
+      "no drift indicators available for the outage window"
+    ],
+    "alert_history_reference": "MON-FRD-RT-04/2026-06-22..24 (gap)",
+    "notes": "Snapshot is reconstructed by replay. Live monitoring evidence for the window does not exist and should not be presented as assurance."
+  },
+  "decision_record": {
+    "decision": "escalate",
+    "recorded_escalation_level": 4,
+    "rationale": "Replay indicates no material customer impact, so suspension is not warranted. However, a critical-tier system ran for 31 hours with no reliability observability and the failure was invisible to the health check, which is a control weakness with implications beyond this system. Escalated to operational resilience for cross-portfolio review of freshness probes.",
+    "temporary_controls": [
+      "Output-freshness alerting added ahead of the next release",
+      "Daily manual telemetry reconciliation until the probe fix is validated",
+      "Analyst queue sampling doubled for one week"
+    ],
+    "decided_at": "2026-06-24T13:20:00Z",
+    "governance_forum_notified": true
+  },
+  "ownership": {
+    "business_owner": {
+      "id": "r.iwu",
+      "role_title": "Head of Fraud Operations",
+      "signed_off_at": "2026-06-24T13:20:00Z"
+    },
+    "technical_owner": {
+      "id": "d.laurent",
+      "role_title": "Principal Engineer, Fraud Platform",
+      "signed_off_at": "2026-06-24T12:05:00Z"
+    },
+    "independent_control_owner": {
+      "id": "k.mensah",
+      "role_title": "Operational Resilience Lead",
+      "signed_off_at": "2026-06-24T14:00:00Z"
+    },
+    "operations_incident_owner": {
+      "id": "t.brennan",
+      "role_title": "Incident Manager",
+      "signed_off_at": "2026-06-24T13:45:00Z"
+    },
+    "approver": {
+      "id": "k.mensah",
+      "role_title": "Operational Resilience Lead",
+      "signed_off_at": "2026-06-24T14:00:00Z"
+    }
+  }
+}

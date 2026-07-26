@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/yablokolabs/trustworthy-ai-standardisation-fintech/examples/schema/cra-evidence-bundle.schema.json",
+  "title": "CRA Evidence Bundle",
+  "description": "Machine-readable structure for the Minimum CRA Evidence Bundle defined in proposals/continuous-reliability-assurance-for-financial-ai.md, section 3. Encodes the six minimum artifacts, the A-E trigger taxonomy from section 2, the materiality classes, and the ownership split required by section 5. This schema is illustrative reference material, not normative standards text.",
+  "type": "object",
+  "required": [
+    "bundle_id",
+    "system",
+    "trigger_record",
+    "delta_description",
+    "reliability_impact_analysis",
+    "monitoring_snapshot",
+    "decision_record",
+    "ownership"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "bundle_id": {
+      "type": "string",
+      "description": "Stable identifier for this reassessment, e.g. CRA-2026-07-001.",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+    },
+    "schema_version": {
+      "type": "string",
+      "description": "Version of this bundle schema the record was written against."
+    },
+    "system": {
+      "type": "object",
+      "description": "Identification and classification of the live AI system under reassessment.",
+      "required": ["system_id", "name", "system_class", "autonomy_level", "impact_tier"],
+      "additionalProperties": false,
+      "properties": {
+        "system_id": { "type": "string" },
+        "name": { "type": "string" },
+        "use_case": {
+          "type": "string",
+          "description": "Free text. Section 8 discusses credit decisioning, fraud detection, AML monitoring, LLM assistants and agentic systems."
+        },
+        "system_class": {
+          "type": "string",
+          "description": "Monitoring requirements by system class, per section 6.",
+          "enum": [
+            "stable_predictive",
+            "continually_retrained",
+            "llm_assistant",
+            "agentic"
+          ]
+        },
+        "autonomy_level": {
+          "type": "string",
+          "description": "Autonomy acts as a threshold multiplier. Section 4 notes the same decline may justify review in a decision-support system but restriction in an autonomous action workflow.",
+          "enum": ["advisory", "human_in_loop", "human_on_loop", "autonomous"]
+        },
+        "impact_tier": {
+          "type": "string",
+          "description": "Proportionality of CRA depth, per the applicability design principle.",
+          "enum": ["low", "moderate", "high", "critical"]
+        }
+      }
+    },
+    "trigger_record": {
+      "type": "object",
+      "description": "Minimum artifact 1: shows why reassessment was opened.",
+      "required": ["trigger_id", "category", "materiality", "detected_at", "detection_source", "summary"],
+      "additionalProperties": false,
+      "properties": {
+        "trigger_id": { "type": "string" },
+        "category": {
+          "type": "string",
+          "description": "Trigger categories A-E as defined in section 2.",
+          "enum": [
+            "A_performance_degradation",
+            "B_distribution_context_change",
+            "C_system_change",
+            "D_control_failure",
+            "E_external_challenge"
+          ]
+        },
+        "materiality": {
+          "type": "string",
+          "description": "Predefined materiality class per the Trigger Materiality Rules in section 2.",
+          "enum": [
+            "informational",
+            "review_required",
+            "approval_required",
+            "restrict_or_stop_use"
+          ]
+        },
+        "detected_at": { "type": "string", "format": "date-time" },
+        "detection_source": {
+          "type": "string",
+          "description": "Detectability is one of the threshold design factors in section 4.",
+          "enum": ["automated_monitoring", "internal_review", "external_party"]
+        },
+        "summary": { "type": "string", "minLength": 1 }
+      }
+    },
+    "delta_description": {
+      "type": "object",
+      "description": "Minimum artifact 2: defines what changed since the last accepted state.",
+      "required": ["summary", "duration"],
+      "additionalProperties": false,
+      "properties": {
+        "summary": { "type": "string", "minLength": 1 },
+        "duration": {
+          "type": "string",
+          "description": "Duration of degradation, a threshold design factor in section 4.",
+          "enum": ["transient", "short", "sustained", "persistent"]
+        },
+        "change_records": {
+          "type": "array",
+          "description": "Change evidence per section 3: retraining summaries, prompt or retrieval change logs, vendor update notices, dependency changes.",
+          "items": {
+            "type": "object",
+            "required": ["change_type", "reference"],
+            "additionalProperties": false,
+            "properties": {
+              "change_type": {
+                "type": "string",
+                "enum": [
+                  "retraining",
+                  "parameter_update",
+                  "prompt_change",
+                  "retrieval_corpus_change",
+                  "orchestration_change",
+                  "model_version_replacement",
+                  "vendor_model_update",
+                  "tool_permission_change",
+                  "dependency_change"
+                ]
+              },
+              "reference": { "type": "string" },
+              "applied_at": { "type": "string", "format": "date-time" }
+            }
+          }
+        }
+      }
+    },
+    "reliability_impact_analysis": {
+      "type": "object",
+      "description": "Minimum artifact 3: connects the observed change to continued acceptability.",
+      "required": ["customer_financial_impact", "assessment"],
+      "additionalProperties": false,
+      "properties": {
+        "customer_financial_impact": {
+          "type": "string",
+          "description": "Customer or financial impact, a threshold design factor in section 4.",
+          "enum": ["none", "low", "moderate", "high", "severe"]
+        },
+        "compensating_controls": {
+          "type": "string",
+          "description": "Availability of compensating controls, a threshold design factor in section 4.",
+          "enum": ["effective", "partial", "none"]
+        },
+        "assessment": { "type": "string", "minLength": 1 },
+        "root_cause": {
+          "type": "string",
+          "description": "Required by section 3 where deterioration is observed."
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "baseline", "observed"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string" },
+              "baseline": { "type": "number" },
+              "observed": { "type": "number" },
+              "threshold": { "type": "number" },
+              "breached": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "monitoring_snapshot": {
+      "type": "object",
+      "description": "Minimum artifact 4: shows live operating behaviour at reassessment time, per section 6.",
+      "required": ["captured_at"],
+      "additionalProperties": false,
+      "properties": {
+        "captured_at": { "type": "string", "format": "date-time" },
+        "monitoring_intact": {
+          "type": "boolean",
+          "description": "False where a monitoring outage or logging failure is itself part of the trigger, per category D."
+        },
+        "drift_indicators": { "type": "array", "items": { "type": "string" } },
+        "override_rate": { "type": "number", "minimum": 0, "maximum": 1 },
+        "alert_history_reference": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "decision_record": {
+      "type": "object",
+      "description": "Minimum artifacts 5 and 6: the control decision and its accountable sign-off.",
+      "required": ["decision", "rationale", "decided_at"],
+      "additionalProperties": false,
+      "properties": {
+        "decision": {
+          "type": "string",
+          "description": "Control decision options from stage 5 of the CRA operating model.",
+          "enum": [
+            "continue",
+            "continue_with_increased_observation",
+            "constrain",
+            "revalidate",
+            "retrain",
+            "rollback",
+            "escalate",
+            "retire"
+          ]
+        },
+        "recorded_escalation_level": {
+          "type": "integer",
+          "description": "Escalation level 1-5 recorded by the institution, per section 4. The evaluator compares its own recommendation against this value.",
+          "minimum": 1,
+          "maximum": 5
+        },
+        "rationale": { "type": "string", "minLength": 1 },
+        "temporary_controls": { "type": "array", "items": { "type": "string" } },
+        "decided_at": { "type": "string", "format": "date-time" },
+        "governance_forum_notified": {
+          "type": "boolean",
+          "description": "Section 4 level 4 requires notification of relevant governance forums."
+        }
+      }
+    },
+    "ownership": {
+      "type": "object",
+      "description": "Section 5 requires deliberate separation of responsibilities. CRA should not collapse into a single-owner model.",
+      "required": ["business_owner", "technical_owner", "independent_control_owner"],
+      "additionalProperties": false,
+      "properties": {
+        "business_owner": { "$ref": "#/$defs/party" },
+        "technical_owner": { "$ref": "#/$defs/party" },
+        "independent_control_owner": { "$ref": "#/$defs/party" },
+        "operations_incident_owner": { "$ref": "#/$defs/party" },
+        "approver": { "$ref": "#/$defs/party" }
+      }
+    }
+  },
+  "$defs": {
+    "party": {
+      "type": "object",
+      "required": ["id", "role_title"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "role_title": { "type": "string", "minLength": 1 },
+        "signed_off_at": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

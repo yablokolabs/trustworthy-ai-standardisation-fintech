@@ -38,6 +38,14 @@ material for:
 - AI quality model work in SC 42
 - green and sustainable AI work relevant to the repository analysis
 
+It also covers engagement and dissemination activity:
+
+- the ART/1 committee message transmitting technical input, and BSI's reply
+- the BSI Standards Maker application
+- cross-post and editorial submission confirmations for the dissemination
+  article
+- the fellowship Final Report submission
+
 These privately retained captures are useful as working evidence for standards
 review and fellowship traceability, especially where they preserve proposal
 titles, scope summaries, purpose statements, committees, and timeline context.
